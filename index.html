@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Om</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientBG 15s infinite alternate;
+            text-align: center;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: #ff4081;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        form {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            background: #ff4081;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #wishes-container {
+            margin-top: 20px;
+            padding: 10px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎉 Happy Birthday Om! 🎂</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#card">Birthday Card</a>
+        <a href="#contact">Send Wishes</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <h2>Wishing You a Day Filled with Joy and Happiness!</h2>
+        <p>May all your dreams come true, Om! Have a fantastic birthday! 🎊🎈</p>
+        <a href="#card" class="btn">Open Birthday Card</a>
+    </section>
+
+    <!-- Birthday Card Section -->
+    <section id="card" class="section">
+        <div class="card">
+            <h2>Dear Om,</h2>
+            <p>🎂 Wishing you an amazing birthday filled with laughter, happiness, and success! 🎈</p>
+            <p>You are an incredible friend, and I’m so grateful to have you in my life. 💖</p>
+            <p>Stay awesome and keep shining! 🌟</p>
+            <p>From, [Your Name]</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>💌 Send Your Birthday Wishes to Om 🎊</h2>
+        <form id="wish-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" required></textarea>
+            
+            <button type="submit">Send Wish</button>
+        </form>
+        
+        <div id="wishes-container"></div>
+    </section>
+
+    <script>
+        document.getElementById('wish-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let message = document.getElementById('message').value;
+            let wishesContainer = document.getElementById('wishes-container');
+
+            let wish = document.createElement('p');
+            wish.innerHTML = `<strong>${name}:</strong> ${message}`;
+            wishesContainer.appendChild(wish);
+
+            document.getElementById('name').value = '';
+            document.getElementById('message').value = '';
+        });
+    </script>
+</body>
+</html>
